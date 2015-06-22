@@ -1,0 +1,17 @@
+<% if !@questions.empty? %>
+<table>
+  <tr>
+    <th>Questions</th>
+  </tr>
+
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%=link_to question.title, question_path(question.id) %>
+   <%= link_to 'Delete',
+                '/questions/' + question.to_param,
+                method: :delete %></td>
+    <% end %>
+  </tr>
+</table>
+
+<% end %>

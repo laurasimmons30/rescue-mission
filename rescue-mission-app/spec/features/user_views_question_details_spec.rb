@@ -11,13 +11,13 @@ feature 'visitor visits details page and sees question description', %(
   # - I must see the question's title
   # - I must see the question's description
 
-  scenario 'user visits details page and sees description' do
-    question = Question.create(title: 'How to push to github', description: "Can anyone give me the command line prompts?")
+  scenario 'user visits details page and sees body of the question' do
+    question = Question.create(title: 'How to push to github', body: "Can anyone give me the command line prompts?")
 
     visit '/questions'
     click_on('questions/1')
 
     expect(page).to have_content(question.title)    
-    expect(page).to have_content(question.descripton)
+    expect(page).to have_content(question.body)
   end
 end
