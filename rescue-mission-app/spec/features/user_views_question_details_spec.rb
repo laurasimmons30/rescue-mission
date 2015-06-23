@@ -12,10 +12,10 @@ feature 'visitor visits details page and sees question description', %(
   # - I must see the question's description
 
   scenario 'user visits details page and sees body of the question' do
-    question = Question.create(title: 'How to push to github', body: "Can anyone give me the command line prompts?")
+    question = Question.create(title: 'How do I make a repository and push to github from the command line', body: "Lalalala. Create a new repository on GitHub. Open Terminal (for Mac users) or the command prompt (for Windows and Linux users). Change the current working directory to your local project. Initialize the local directory as a Git repository. Add the files in your new local repository")
 
     visit '/questions'
-    click_on('questions/1')
+    click_link("How do I make a repository and push to github from the command line")
 
     expect(page).to have_content(question.title)    
     expect(page).to have_content(question.body)

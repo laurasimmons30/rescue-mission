@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
-  resources :questions, only: [:index, :new, :show, :destroy]
+  resources :questions, only: [:index, :new, :create, :show, :destroy] do
+    resources :answers, only: [:index, :new, :create, :show, :destroy]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

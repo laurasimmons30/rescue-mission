@@ -1,2 +1,19 @@
 <h1><%= @question.title %></h1>
-<%= @question.body %>
+<p><%= @question.body %></p>
+
+<h3>Answers Submitted</h3>
+
+<ul>
+  <% @answers.each do |answer| %>
+    <li><%= answer.body %></li>
+  <% end %>
+</ul>
+
+<h3>Give an Answer</h3>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Add Answer" %>
+<% end %>
+

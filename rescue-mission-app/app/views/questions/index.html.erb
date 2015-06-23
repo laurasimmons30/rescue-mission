@@ -6,8 +6,8 @@
 
   <% @questions.each do |question| %>
   <tr>
-    <td><%=link_to question.title, question_path(question.id) %>
-   <%= link_to 'Delete',
+    <td><%=link_to question.title, question_path(question.id) %></td>
+   <td><%= link_to 'Delete',
                 '/questions/' + question.to_param,
                 method: :delete %></td>
     <% end %>
@@ -15,3 +15,5 @@
 </table>
 
 <% end %>
+
+<%= link_to 'Add a question', question_path(:new) %>

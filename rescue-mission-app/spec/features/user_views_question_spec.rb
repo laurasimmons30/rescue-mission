@@ -10,7 +10,7 @@ feature 'visitor views full list of question', %(
 # - I must see questions listed in order, most recently posted first
 
   scenario 'question has a title' do
-    question = Question.create(title: 'How to push to github', body: "Can anyone give me the command line prompts?")
+    question = Question.create(title: 'How do I make a repository and push to github from the command line', body: "Lalalala. Create a new repository on GitHub. Open Terminal (for Mac users) or the command prompt (for Windows and Linux users). Change the current working directory to your local project. Initialize the local directory as a Git repository. Add the files in your new local repository")
     
     visit '/questions'
     expect(page).to have_content(question.title)
