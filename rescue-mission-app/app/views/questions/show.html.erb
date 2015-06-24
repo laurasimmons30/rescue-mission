@@ -1,5 +1,7 @@
 <h1><%= @question.title %></h1>
 <p><%= @question.body %></p>
+<%= link_to 'Update Question', edit_question_path(@question) %>
+<br>
 
 <h3>Answers Submitted</h3>
 
@@ -17,3 +19,5 @@
   <%= f.submit "Add Answer" %>
 <% end %>
 
+
+<%= link_to 'Delete this Question', question_path(@question), method: :delete %>

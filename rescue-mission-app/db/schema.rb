@@ -16,6 +16,12 @@ ActiveRecord::Schema.define(version: 20150622195253) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "actors", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "answers", force: :cascade do |t|
     t.string   "body",        null: false
     t.integer  "user_id"
@@ -24,10 +30,41 @@ ActiveRecord::Schema.define(version: 20150622195253) do
     t.datetime "updated_at"
   end
 
+  create_table "cast_members", force: :cascade do |t|
+    t.integer  "movie_id",               null: false
+    t.integer  "actor_id",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "character",  limit: 255
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title",      limit: 255, null: false
+    t.integer  "year",                   null: false
+    t.text     "synopsis"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "genre_id",               null: false
+    t.integer  "studio_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string   "title",      null: false
     t.string   "body",       null: false
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

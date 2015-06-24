@@ -3,26 +3,31 @@ class QuestionsController < ApplicationController
   
   def new
     @question = Question.new
-    # @answer = Answer.new
   end
 
   def create
-      @question = Question.new(question_params)
+    @question = Question.new(question_params)
     if @question.save
       flash[:notice] = 'Question added.'
       redirect_to questions_path
     else
       render :new
     end
+  end
 
-    # @answer = Answer.new(answer_params)
-    # if @answer.save
-    #   flash[:notice] = 'Answer added.'
-    #   redirect_to questions_path
-    # else
-    #   render :show
-    # end
-    
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      flash[:notice] = 'Your edit has been updated'
+      redirect_to question_path(@question)
+    else
+      flash[:notice] = 'Something went wrong'
+      render :edit
+    end
   end
 
   def index

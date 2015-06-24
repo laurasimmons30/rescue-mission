@@ -8,12 +8,12 @@
   <tr>
     <td><%=link_to question.title, question_path(question.id) %></td>
    <td><%= link_to 'Delete',
-                '/questions/' + question.to_param,
+                question_path(question),
                 method: :delete %></td>
     <% end %>
   </tr>
 </table>
-
+ 
 <% end %>
 
 <%= link_to 'Add a question', question_path(:new) %>
