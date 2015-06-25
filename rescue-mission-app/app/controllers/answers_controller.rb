@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
       redirect_to question_path(@question)
     else
       flash[:alert] = "Failed to save answer"
-      render :new
+      redirect_to question_path(@question)
     end
   end
 
